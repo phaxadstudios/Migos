@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migos Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles can be added here */
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="font-semibold text-xl">Migos Blog</a>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:text-gray-300">Home</a></li>
+                <li><a href="#" class="hover:text-gray-300">About</a></li>
+                <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Migos Blog</h1>
+        <div id="blog-posts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+
+    <!-- Sample Blog Post Template -->
+    <template id="blog-post-template">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2 post-title"></h2>
+            <p class="text-gray-600 mb-4 post-content"></p>
+            <a href="#" class="text-blue-500 hover:underline post-read-more">Read more</a>
+        </div>
+    </template>
+
+    <!-- JavaScript -->
+    <script>
+        const blogPosts = [
+            { title: 'The One with the Thanksgiving Trifle', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia eleifend purus, vel viverra neque finibus at.' },
+            { title: 'The One with Ross\'s Tan', content: 'Vestibulum non quam vel ligula volutpat cursus at vel tortor. Donec in lectus eros.' },
+            { title: 'The One with the Prom Video', content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
+            // Add more sample blog posts as needed
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            const template = document.getElementById('blog-post-template');
+
+            blogPosts.forEach(post => {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector('.post-title').textContent = post.title;
+                clone.querySelector('.post-content').textContent = post.content;
+                blogPostsContainer.appendChild(clone);
+            });
+        });
+    </script>
+</body>
+</html>
